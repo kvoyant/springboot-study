@@ -65,4 +65,9 @@ class MemoryMemberRepositoryTest {
         assertEquals(result.size(), 2);
 
     }
+    /*
+     반대로 테스트 작성 후 개발하는 방식을 TDD 라고도 한다.
+     TDD : 테스트 주도 개발
+     테스트를 먼저 만들고 구현 클래스에 적용
+     */
 }
