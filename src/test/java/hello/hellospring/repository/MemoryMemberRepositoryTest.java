@@ -11,7 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemoryMemberRepositoryTest {
 
-    MemberRepository repository = new MemoryMemberRepository();
+    MemoryMemberRepository repository = new MemoryMemberRepository();
+
+    @AfterEach
+    public void afterEach() {
+        repository.clearStore();
+    }
 
     @Test
     public void save() {
@@ -45,4 +50,19 @@ class MemoryMemberRepositoryTest {
         assertEquals(result, member1);
     }
 
+    @Test
+    public void findAll() {
+        Member member1 = new Member();
+        member1.setName("spring1");
+        repository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("spring2");
+        repository.save(member2);
+
+        List<Member> result = repository.findAll();
+
+        assertEquals(result.size(), 2);
+
+    }
 }
